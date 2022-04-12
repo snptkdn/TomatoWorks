@@ -1,0 +1,56 @@
+body{
+  background-color: rgb(223, 217, 217);
+}
+h3{
+  width:300px;
+  text-align: center;
+  padding:10px;
+  margin:70px auto 50px;
+  background-color: rgba(255,255,255,.7);
+  border-radius: 5px;
+}
+.content {
+  background-color: red;
+  color:white;
+  width:350px;
+  margin:0 auto 30px;
+  padding:15px;
+  text-align: center;
+  font-size:30px;
+}
+.content p{
+  margin:0;
+  padding:0;
+}
+
+.button{/* div class="button"の時のレイアウト　*/
+width:100%;
+text-align: center;
+}
+
+.buttonbutton{/* div class="buttonbutton"の時のレイアウト　*/
+  width:100%;
+text-align: center;
+}
+
+button button{/* div class="button"の時のレイアウト　*/
+  border:none;
+  width: 80px;
+  padding:10px 0 10px 0;
+  border-radius: 6px;
+  color:white;
+  background-color: rgba(2, 61, 255, .8);
+  box-shadow:3px 3px 6px rgba(0,0,0,.4);
+}
+
+.buttonbutton button{/* div class="buttonbutton"の時のレイアウト　*/
+  border:none;
+  width: 80px;
+  padding:10px 0 10px 0;
+  border-radius: 6px;
+  color:black;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow:3px 3px 6px rgba(0,0,0,.4);
+}
+
+
