@@ -13,7 +13,7 @@ const createWindow = () => {
   
 
   mainWindow.webContents.openDevTools({mode: 'detach'});
-  mainWindow.loadFile('src/index.html');
+  mainWindow.loadFile('index.html');
 };
 
 app.once('ready', () => {
