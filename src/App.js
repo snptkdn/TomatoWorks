@@ -7,14 +7,14 @@ export class App {
         const conteinerElement = document.querySelector("#js-todo-list");
         const todoItemCountElement = document.querySelector("#js-todo-count");
         const todoListElement = element`<ul />`;
-        let todoItemCount = 0;
         formElement.addEventListener("submit", (event) => {
             event.preventDefault();
             const todoItemElement = element`<li>${inputElement.value}</li>`;
             todoListElement.appendChild(todoItemElement);
             render(todoListElement, conteinerElement);
 
-            todoItemCount += 1;
+            const todoItemCount = todoListElement.childElementCount;
+            console.log(todoItemCount);
             todoItemCountElement.textContent = `Todoアイテム数: ${todoItemCount}`;
             inputElement.value = ""
         })
