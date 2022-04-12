@@ -1,0 +1,116 @@
+/* 見た目調整 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+  font-feature-settings: "palt";
+}
+
+.container {
+  color: #ecf0f1;
+  font-size: 2.0rem;
+}
+
+.container > * {
+  padding: 10px;
+}
+
+.header {
+  background-color: #2ecc71;
+}
+
+.timer {
+    background-color: orange;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.main {
+  background-color: #3498db;
+  height: 70vh;
+}
+
+.aside {
+  background-color: #f1c40f;
+}
+
+.nav {
+  background-color: #e74c3c;
+}
+
+.footer {
+  background-color: #9b59b6;
+}
+
+/* mainの子要素 */
+.title {
+    background-color: purple;
+}
+
+.taskDetail {
+    margin: 3px;
+    background-color: purple;
+}
+
+.taskStatus {
+    background-color: purple;
+}
+
+/* ====================
+  グリッドコンテナ
+==================== */
+.container {
+  display: grid;
+  grid-template-columns: 180px 1fr 200px;
+  grid-template-rows: 60px 1fr 100px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 100px;
+}
+
+/* ====================
+  グリッドアイテム
+==================== */
+.header {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.timer {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.main {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.aside {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.nav {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.footer {
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+}
+
+/* mainの子要素 */
+.title {
+    grid-row: 1;
+}
+
+.taskDetail {
+    grid-row: 2;
+}
+
+.taskStatus {
+    grid-row: 3;
+}

@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo App</title>
-    <!-- CSSファイルの読み込み-->
-    <link
-      href="https://jsprimer.net/use-case/todoapp/final/final/index.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- class属性を指定 -->
-    <div class="todoapp">
-      <!-- id属性を指定 -->
-      <form id="js-form">
-        <input
-          id="js-form-input"
-          class="new-todo"
-          type="text"
-          placeholder="What neet to be done?"
-          autocomplete="off"
-        />
-      </form>
-      <!-- TODOリスト -->
-      <div id="js-todo-list" class="todo-list">
-        <!-- 動的に更新される -->
-      </div>
-      <footer class="footer">
-        <span id="js-todo-count">Todoアイテム数: 0</span>
-      </footer>
-    </div>
-    <script src="./index.js" type="module"></script>
-  </body>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>PomodoroTask - snptkdn</title>
+  <link rel="stylesheet" href="dist/style.css"/>
+</head>
+
+<body>
+<div class="container">
+  <header class="header">
+    TomatoTask
+  </header>
+  <header class="timer">
+    00:00
+  </header>
+  <main class="main">
+    <label class="title">
+      taskTitle
+    </label>
+    <label class="taskDetail">
+      タスクの説明
+    </label>
+    <label class="taskStatus">
+      タスクの状態
+    </label>
+  </main>
+  <aside class="aside">
+    <ul>
+      <li>Task1</li>
+      <li>Task2</li>
+    </ul>
+  </aside>
+  <nav class="nav">今日の進捗等</nav>
+  <footer class="footer">なに書くか未定</footer>
+</div>
+</body>
 </html>
