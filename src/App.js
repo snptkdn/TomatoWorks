@@ -1,32 +1,54 @@
+import { render } from "./view/html-util.js";
 import { TodoListModel } from "./model/TodoListModel.js";
 import { TodoItemModel } from "./model/TodoItemModel.js";
-import { element, render } from "./view/html-util.js";
+import { TodoListView } from "./view/todoListView.js";
 
 export class App {
     constructor() {
+        this.todoListView = new TodoListView();
         this.TodoListModel = new TodoListModel();
     }
+
+    /**
+     * Todoを追加するときに呼ばれるリスナー関数
+     * @param {string} title
+     */
+    handleAdd(title) {
+        this.TodoListModel.addTodo(new TodoItemModel({ title, completed: false }));
+    }
+
+    /**
+     * Todoを更新するときに呼ばれるリスナー関数
+     * @param {{id:number, completed: boolean}} 
+     */
+    handleUpdate({ id, completed }) {
+        this.TodoListModel.updateTodo({ id, completed });
+    }
+
+    /**
+     * Todoを削除するときに呼ばれるリスナー関数
+     * @param {{id:number}} 
+     */
+    handleDelete({ id }) {
+        this.TodoListModel.deleteTodo({ id });
+    }
+
     mount() {
         const formElement = document.querySelector("#js-form");
         const inputElement = document.querySelector("#js-form-input");
         const conteinerElement = document.querySelector("#js-todo-list");
         const todoItemCountElement = document.querySelector("#js-todo-count");
         this.TodoListModel.onChange(() => {
-            const todoListElement = element`<ul />`;
             const todoItems = this.TodoListModel.getTodoItems();
-            todoItems.forEach(item => {
-                const todoItemElement  = item.completed
-                ? element`<li><input type="checkbox" class="checkbox" checked><s>${item.title}</s></li>`
-                : element`<li><input type="checkbox" class="checkbox">${item.title}</s></li>`
+            const todoListView = new TodoListView();
 
-                const inputCheckboxElement = todoItemElement.querySelector(".checkbox");
-                inputCheckboxElement.addEventListener("change", () => {
-                    this.TodoListModel.updateTodo({
-                        id: item.id,
-                        completed: !item.completed
-                    });
-                });
-                todoListElement.appendChild(todoItemElement);
+            const todoListElement = todoListView.createElement(todoItems, {
+                onUpdateTodo: ({id, completed}) => {
+                    this.handleUpdate({ id, completed });
+                },
+                onDeleteTodo: ({id}) => {
+                    this.handleDelete({ id });
+                }
             })
 
             render(todoListElement, conteinerElement);
@@ -36,10 +58,7 @@ export class App {
         formElement.addEventListener("submit", (event) => {
             event.preventDefault();
 
-            this.TodoListModel.addTodo(new TodoItemModel({
-                title: inputElement.value,
-                completed: false
-            }));
+            this.handleAdd(inputElement.value);
             inputElement.value = "";
         })
     }
