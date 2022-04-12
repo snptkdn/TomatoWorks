@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8"/>
-  <title>PomodoroTask - snptkdn</title>
-  <link rel="stylesheet" href="dist/style.css"/>
-</head>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>PomodoroTask - snptkdn</title>
+    <link rel="stylesheet" href="dist/style.css"/>
+  </head>
 
-<body>
-<div class="container">
-  <header class="header">
-    TomatoTask
-  </header>
-  <header class="timer">
-    00:00
-  </header>
-  <main class="main">
-    <label class="title">
-      taskTitle
-    </label>
-    <label class="taskDetail">
-      タスクの説明
-    </label>
-    <label class="taskStatus">
-      タスクの状態
-    </label>
-  </main>
-  <aside class="aside">
-    <ul>
-      <li>Task1</li>
-      <li>Task2</li>
-    </ul>
-  </aside>
-  <nav class="nav">今日の進捗等</nav>
-  <footer class="footer">なに書くか未定</footer>
-</div>
-</body>
+  <body>
+    <div class="container">
+      <header class="header">
+        TomatoTask
+      </header>
+      <header class="timer">
+        00:00
+      </header>
+      <main class="main">
+        <label class="title">
+          taskTitle
+        </label>
+        <label class="taskDetail">
+          タスクの説明
+        </label>
+        <label class="taskStatus">
+          タスクの状態
+        </label>
+      </main>
+      <aside class="aside">
+        <form id="js-form">
+          <input
+            id="js-form-input"
+            class="new-todo"
+            type="text"
+            placeholder="New Task"
+            autocomplete="off"
+          />
+        </form>
+        <div id="js-todo-list" class="todo-list">
+        </div>
+      </aside>
+      <nav class="nav">今日の進捗等</nav>
+      <footer class="footer">なに書くか未定</footer>
+    </div>
+    <script src="./index.js" type="module"></script>
+  </body>
 </html>

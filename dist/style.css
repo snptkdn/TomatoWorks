@@ -4,6 +4,11 @@ body {
   font-feature-settings: "palt";
 }
 
+ul {
+    list-style-type: none;
+    padding: 10px;
+}
+
 .container {
   color: #ecf0f1;
   font-size: 2.0rem;
@@ -54,6 +59,15 @@ body {
     background-color: purple;
 }
 
+/* asideの子要素 */
+.todo-list {
+    background-color: purple;
+    font-size: 1.0rem;
+}
+.new-todo {
+    background-color: purple;
+}
+
 /* ====================
   グリッドコンテナ
 ==================== */
@@ -67,6 +81,12 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr 100px;
+}
+
+.aside {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 40px;
 }
 
 /* ====================
@@ -113,4 +133,13 @@ body {
 
 .taskStatus {
     grid-row: 3;
+}
+
+/* asideの子要素 */
+.todo-list {
+    grid-row: 1;
+}
+
+.new-todo {
+    grid-row: 2;
 }
