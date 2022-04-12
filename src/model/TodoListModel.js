@@ -1,4 +1,5 @@
 import { EventEmitter } from "../EventEmitter.js";
+import { TodoItemModel } from "./TodoItemModel.js";
 
 export class TodoListModel extends EventEmitter {
     /**
@@ -7,6 +8,16 @@ export class TodoListModel extends EventEmitter {
     constructor(items = []) {
         super();
         this.items = items;
+    }
+
+    /**
+     * TodoItemの合計個数をカウントする
+     */
+    getTotalCount() {
+        const lenOfunCheckedTodo = this.items.filter( item => {
+            return !item.completed;
+        });
+        return lenOfunCheckedTodo.length;
     }
 
     /**
@@ -38,6 +49,19 @@ export class TodoListModel extends EventEmitter {
      */
     addTodo(todoItem) {
         this.items.push(todoItem);
+        this.emitChange();
+    }
+
+    /**
+     * 指定したidのTodoItemのcompletedを更新する
+     * @param {{ id:Number, completed: boolean}}
+     */
+    updateTodo({ id, completed }) {
+        const todoItem = this.items.find(todo => todo.id === id);
+        if (!todoItem) {
+            return;
+        }
+        todoItem.completed = completed;
         this.emitChange();
     }
 }
